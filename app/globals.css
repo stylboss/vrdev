@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 50 33% 98%; /* #FAFAF6 */
+    --foreground: 222 10% 13%; /* #222222 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 222 10% 13%; /* #222222 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 10% 13%;
+    --primary: 222 100% 90%; /* Blue: #D6E6F7 */
+    --primary-foreground: 222 100% 30%; /* #225577 */
+    --secondary: 260 60% 92%; /* Purple: #D6D6F7 */
+    --secondary-foreground: 260 60% 30%;
+    --muted: 90 60% 92%; /* Green: #E4F7D6 */
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 50 100% 92%; /* Yellow: #F7F4D6 */
+    --accent-foreground: 240 5% 64.9%;
+    --destructive: 0 80% 92%; /* Pink/Red: #F7D6D6 */
+    --destructive-foreground: 0 80% 30%;
+    --border: 220 10% 90%; /* #E6E6E6 */
+    --input: 220 10% 90%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 116 78% 86%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animation de fond */
+.dot-pattern {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+}
+
+.glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(76, 175, 80, 0.15) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Effet de brillance sur les boutons */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s;
+}
+
+.shine-effect:hover::after {
+  transform: rotate(30deg) translate(50%, 50%);
+}
+
+/* Animation pour les avatars */
+.avatar-group {
+  transition: all 0.3s ease;
+}
+
+.avatar-group:hover .avatar {
+  transform: translateX(0) !important;
+}
+
+.avatar {
+  transition: transform 0.3s ease;
+}
+
+/* Effet de grille */
+.grid-pattern {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+select#project-type {
+  /* Supprimer l'effet brillant */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Désactiver le reflet et les ombres */
+  background-image: none;
+  box-shadow: none;
+
+  /* Assurer une opacité complète */
+  opacity: 1;
+
+  /* Optionnel: ajouter un léger assombrissement au survol pour feedback */
+  transition: background-color 0.2s;
+}
+
+select#project-type:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
