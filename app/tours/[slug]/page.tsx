@@ -17,7 +17,7 @@ export default async function TourPage({
 }: {
   params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const title = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
