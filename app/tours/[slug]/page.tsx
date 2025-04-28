@@ -12,7 +12,7 @@ export const metadata = {
     "Explore our immersive 3D virtual tour with Matterport Pro2 4K technology.",
 };
 
-export default async function TourPage({
+export default async function Page({
   params,
 }: {
   params: { slug: string };
