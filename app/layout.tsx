@@ -38,6 +38,7 @@ export default function RootLayout({
           rel="apple-touch-icon-precomposed"
           href="/apple-touch-icon-precomposed.png"
         />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <style>
           {`
             :root {
