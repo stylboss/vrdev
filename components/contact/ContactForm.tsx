@@ -3,6 +3,8 @@ import { sendContactEmail } from "./actions";
 import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import { toastSuccess, toastError } from "@/utils/toast";
+//import { useEffect } from "react";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -15,8 +17,28 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const result = await sendContactEmail(formData);
+    if (result.success) {
+      toastSuccess("Your message has been sent successfully.");
+      form.reset();
+    } else {
+      toastError(result.error || "Failed to send message.");
+    }
+  };
+
+  // Simulate a random error toast for testing
+  // useEffect(() => {
+  //   if (Math.random() < 0.5) {
+  //     toastError("Random simulated error!");
+  //   }
+  // }, []);
+
   return (
-    <form action={sendContactEmail} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm font-medium leading-none">
           Name

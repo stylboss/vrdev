@@ -1,16 +1,98 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ChevronDownIcon from "@/components/ChevronDownIcon";
-import { useContactForm } from "@/components/hooks/useContactForm";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import ContactForm from "@/components/contact/ContactForm";
+import { sendContactEmail } from "@/components/contact/actions";
+import { toastSuccess, toastError } from "@/utils/toast";
+
+function CTAForm() {
+  async function clientAction(formData: FormData) {
+    const res: { success: boolean; error?: string } = await sendContactEmail(formData);
+    if (res && res.success) {
+      toastSuccess("Votre demande a été envoyée avec succès!");
+    } else {
+      toastError(res?.error || "Une erreur s'est produite. Veuillez réessayer.");
+    }
+  }
+  return (
+    <form className="space-y-4" action={clientAction}>
+      <div className="grid gap-4 sm:grid-cols-1">
+        <div className="space-y-2">
+          <label
+            htmlFor="name"
+            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Nom
+          </label>
+          <input
+            id="name"
+            name="name"
+            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder="Entrez votre nom"
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <label
+            htmlFor="email"
+            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder="Entrez votre email"
+            required
+          />
+        </div>
+      </div>
+      <div className="space-y-2 relative">
+        <label
+          htmlFor="projectType"
+          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Type de Projet
+        </label>
+        <div className="relative">
+          <select
+            id="projectType"
+            name="projectType"
+            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 pr-10 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
+            required
+          >
+            <option value="">Sélectionnez le type de projet</option>
+            <option value="residential">Résidentiel</option>
+            <option value="commercial">Commercial</option>
+            <option value="event">Événement</option>
+          </select>
+          <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground dark:text-white" />
+        </div>
+      </div>
+      <div className="space-y-2">
+        <label
+          htmlFor="message"
+          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          className="flex min-h-[100px] w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
+          placeholder="Parlez-nous de votre projet"
+          required
+        />
+      </div>
+      <Button type="submit" className="w-full shine-effect text-xs">
+        Envoyer la Demande
+      </Button>
+    </form>
+  );
+}
 
 const CTASection = () => (
   <section id="cta" className="w-full py-6 sm:py-8 relative">
@@ -95,99 +177,5 @@ const CTASection = () => (
     </div>
   </section>
 );
-
-export function CTAForm() {
-  const { form, handleChange, handleSubmit, status } = useContactForm();
-
-  return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
-      <div className="grid gap-4 sm:grid-cols-1">
-        <div className="space-y-2">
-          <label
-            htmlFor="name"
-            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            Nom
-          </label>
-          <input
-            id="name"
-            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder="Entrez votre nom"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <label
-            htmlFor="email"
-            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder="Entrez votre email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-      </div>
-      <div className="space-y-2 relative">
-        <label
-          htmlFor="projectType"
-          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          Type de Projet
-        </label>
-        <div className="relative">
-          <select
-            id="projectType"
-            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 pr-10 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
-            value={form.projectType}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Sélectionnez le type de projet</option>
-            <option value="residential">Résidentiel</option>
-            <option value="commercial">Commercial</option>
-            <option value="event">Événement</option>
-          </select>
-          <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground dark:text-white" />
-        </div>
-      </div>
-      <div className="space-y-2">
-        <label
-          htmlFor="message"
-          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          Message
-        </label>
-        <textarea
-          id="message"
-          className="flex min-h-[100px] w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
-          placeholder="Parlez-nous de votre projet"
-          value={form.message}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <Button type="submit" className="w-full shine-effect text-xs">
-        Envoyer la Demande
-      </Button>
-      {status === "success" && (
-        <p className="text-green-600 text-xs">Votre demande a été envoyée !</p>
-      )}
-      {status === "error" && (
-        <p className="text-red-600 text-xs">
-          Erreur lors de l'envoi. Réessayez.
-        </p>
-      )}
-    </form>
-  );
-}
 
 export default CTASection;

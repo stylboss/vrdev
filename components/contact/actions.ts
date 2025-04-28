@@ -1,9 +1,9 @@
 "use server";
 
 import nodemailer from "nodemailer";
-import { redirect } from "next/navigation";
 
-export async function sendContactEmail(formData: FormData) {
+// Return a success/error result for toast usage
+export async function sendContactEmail(formData: FormData): Promise<{ success: boolean; error?: string }> {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const projectType = formData.get("projectType") as string;
@@ -20,20 +20,14 @@ export async function sendContactEmail(formData: FormData) {
   const mailOptions = {
     from: email,
     to: process.env.BUSINESS_EMAIL,
-    subject: `Nouveau contact: ${projectType || "Demande de contact"}`,
-    text: `Nom: ${name}\nEmail: ${email}\nType: ${projectType}\nMessage:\n${message}`,
+    subject: `Nouveau message de contact (${projectType})`,
+    text: `Nom: ${name}\nEmail: ${email}\nType de projet: ${projectType}\nMessage: ${message}`,
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Nodemailer response info:", info);
-    redirect("/contact?success=1");
-  } catch (e) {
-    // Only log real errors, not NEXT_REDIRECT
-    if (e && typeof e === "object" && "digest" in e && typeof e.digest === "string" && e.digest.startsWith("NEXT_REDIRECT")) {
-      throw e;
-    }
-    console.error("Nodemailer error:", e);
-    redirect("/contact?error=1");
+    await transporter.sendMail(mailOptions);
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message || "Erreur d'envoi." };
   }
 }

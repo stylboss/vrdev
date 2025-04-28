@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="dot-pattern min-h-screen">{children}</div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
