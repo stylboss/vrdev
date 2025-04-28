@@ -3,6 +3,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/theme-toggle";
 import LanguageToggle from "@/components/language-toggle";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
+import ContactForm from "@/components/contact/ContactForm";
+import { Menu } from "lucide-react";
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[rgb(237,235,227)] dark:bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-[rgb(237,235,227)]/80 dark:supports-[backdrop-filter]:bg-background/20">
@@ -39,12 +42,57 @@ const Header = () => (
           Contact
         </Link>
       </nav>
+      {/* Mobile burger menu */}
+      <div className="md:hidden flex items-center">
+        <Dialog>
+          <DialogTrigger asChild>
+            <button className="p-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Ouvrir le menu">
+              <Menu className="h-6 w-6 text-primary" />
+            </button>
+          </DialogTrigger>
+          <DialogContent className="p-0 max-w-xs w-full rounded-2xl">
+            <DialogHeader>
+              <DialogTitle>Menu</DialogTitle>
+            </DialogHeader>
+            <nav className="flex flex-col gap-4 p-6">
+              <Link href="/" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => {}}>
+                Accueil
+              </Link>
+              <Link href="/portfolio" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => {}}>
+                Portfolio
+              </Link>
+              <Link href="/services" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => {}}>
+                Services
+              </Link>
+              <Link href="/blog" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => {}}>
+                Blog
+              </Link>
+              <Link href="/contact" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => {}}>
+                Contact
+              </Link>
+              <DialogClose asChild>
+                <button className="mt-6 w-full py-2 rounded bg-primary text-white font-semibold hover:bg-primary/90 transition">Fermer</button>
+              </DialogClose>
+            </nav>
+          </DialogContent>
+        </Dialog>
+      </div>
       <div className="flex items-center gap-4">
         <LanguageToggle />
         <ThemeToggle />
-        <Button className="shine-effect bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
-          Obtenir un Devis
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="shine-effect bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+              Obtenir un Devis
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Obtenir un Devis</DialogTitle>
+            </DialogHeader>
+            <ContactForm />
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   </header>

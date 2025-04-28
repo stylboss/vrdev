@@ -7,7 +7,7 @@ import RelatedTours from "./components/RelatedTours";
 import CTASection from "./components/CTASection";
 
 export const metadata = {
-  title: "Tour Details | VirtualVista",
+  title: "Tour Details | vrdev",
   description:
     "Explore our immersive 3D virtual tour with Matterport Pro2 4K technology.",
 };

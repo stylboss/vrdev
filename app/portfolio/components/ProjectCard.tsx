@@ -22,11 +22,15 @@ export default function ProjectCard({
   ];
 
   const urls = [
-    "https://my.matterport.com/show?play=1&lang=en-US&m=o2PhajV5u33",
+    "https://my.matterport.com/show?play=1&lang=en-US&m=YGW1E9vhYf9",
     "https://my.matterport.com/show?play=1&lang=en-US&m=fbVhQEK8BZD",
     "https://my.matterport.com/show?play=1&lang=en-US&m=ogSbWBzNpQA",
     "https://my.matterport.com/show?play=1&lang=en-US&m=6D5kH5mCvhW",
     "https://my.matterport.com/show?play=1&lang=en-US&m=YuCGm4mVmYo",
+    "https://my.matterport.com/show?play=1&lang=en-US&m=hbz9GFyCvr5",
+    "https://my.matterport.com/show?play=1&lang=en-US&m=QMq3SVXRs3a",
+    "https://my.matterport.com/show?play=1&lang=en-US&m=sAAEmBDFUEP",
+    "https://my.matterport.com/show?play=1&lang=en-US&m=j3QY4TrsAJ9",
   ];
 
   const cats = ["residential", "commercial", "events"];

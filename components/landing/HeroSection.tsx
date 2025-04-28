@@ -16,8 +16,8 @@ const HeroSection = () => (
           <span className="block text-primary">proposer le meilleur</span>
         </h1>
         <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed font-inter">
-          Avec une formation 100% offerte où tu vas développer un SaaS Next avec
-          l'IA
+          Explorez, imaginez, vivez l'expérience immersive des visites 3D
+          Matterport Pro2 4K &copy; {new Date().getFullYear()}.
         </p>
         <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
           <Button size="lg" className="shine-effect">

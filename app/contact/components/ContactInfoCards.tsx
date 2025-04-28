@@ -1,57 +1,48 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function ContactInfoCards() {
+  const cards = [
+    {
+      icon: <MapPin className="h-4 w-4 text-primary" />,
+      title: "Our Office",
+      value: (
+        <p className="text-muted-foreground font-inter text-xs">
+          123 Virtual Street<br />Montreal, QC H2X 1Y6<br />Canada
+        </p>
+      ),
+    },
+    {
+      icon: <Phone className="h-4 w-4 text-primary" />,
+      title: "Phone",
+      value: <p className="text-muted-foreground font-inter text-xs">+1 (514) 555-0123</p>,
+    },
+    {
+      icon: <Mail className="h-4 w-4 text-primary" />,
+      title: "Email",
+      value: <p className="text-muted-foreground font-inter text-xs">info@vrdev.com</p>,
+    },
+    {
+      icon: <Clock className="h-4 w-4 text-primary" />,
+      title: "Business Hours",
+      value: (
+        <p className="text-muted-foreground font-inter text-xs">
+          Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM - 4:00 PM<br />Sunday: Closed
+        </p>
+      ),
+    },
+  ];
+
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardContent className="p-6 flex items-start gap-4">
-          <div className="rounded-full bg-primary/10 p-3">
-            <MapPin className="h-6 w-6 text-primary" />
-          </div>
+    <div className="flex flex-col gap-3 text-xs">
+      {cards.map((card, idx) => (
+        <div key={idx} className="flex items-center gap-2 p-2 rounded-lg bg-white/70 dark:bg-background/60 border border-white/10 shadow-sm">
+          <span className="text-primary">{card.icon}</span>
           <div>
-            <h3 className="font-bold mb-1 font-montserrat">Our Office</h3>
-            <p className="text-muted-foreground font-inter">
-              123 Virtual Street<br />Montreal, QC H2X 1Y6<br />Canada
-            </p>
+            <div className="font-semibold">{card.title}</div>
+            <div className="text-muted-foreground">{card.value}</div>
           </div>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent className="p-6 flex items-start gap-4">
-          <div className="rounded-full bg-primary/10 p-3">
-            <Phone className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="font-bold mb-1 font-montserrat">Phone</h3>
-            <p className="text-muted-foreground font-inter">+1 (514) 555-0123</p>
-          </div>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent className="p-6 flex items-start gap-4">
-          <div className="rounded-full bg-primary/10 p-3">
-            <Mail className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="font-bold mb-1 font-montserrat">Email</h3>
-            <p className="text-muted-foreground font-inter">info@virtualvista.com</p>
-          </div>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent className="p-6 flex items-start gap-4">
-          <div className="rounded-full bg-primary/10 p-3">
-            <Clock className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="font-bold mb-1 font-montserrat">Business Hours</h3>
-            <p className="text-muted-foreground font-inter">
-              Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM - 4:00 PM<br />Sunday: Closed
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+      ))}
     </div>
   );
 }

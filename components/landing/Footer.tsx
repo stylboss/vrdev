@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="w-full border-t border-white/10 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/20">
     <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
       <div className="space-y-4">
-        <h3 className="text-sm font-medium font-montserrat">VirtualVista</h3>
+        <h3 className="text-sm font-medium font-montserrat">vrdev</h3>
         <p className="text-muted-foreground font-inter text-sm">
           Solutions immersives pour visites virtuelles, modélisation 3D et photographie professionnelle.
         </p>
@@ -101,13 +101,13 @@ const Footer = () => (
           </li>
           <li className="flex items-center gap-2">
             <Mail className="h-5 w-5 text-muted-foreground" />
-            <span className="text-muted-foreground font-inter">info@virtualvista.com</span>
+            <span className="text-muted-foreground font-inter">info@vrdev.com</span>
           </li>
         </ul>
       </div>
     </div>
     <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-muted-foreground font-inter">
-      <p>© {new Date().getFullYear()} VirtualVista. Tous droits réservés.</p>
+      <p> {new Date().getFullYear()} vrdev. Tous droits réservés.</p>
     </div>
   </footer>
 );

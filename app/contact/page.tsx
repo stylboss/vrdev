@@ -2,7 +2,7 @@ import ContactInfoCards from "./components/ContactInfoCards";
 import ContactForm from "./components/ContactForm";
 
 export const metadata = {
-  title: "Contact Us | VirtualVista",
+  title: "Contact Us | vrdev",
   description: "Get in touch with our team to discuss your virtual tour project.",
 }
 

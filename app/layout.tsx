@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "VirtualVista | Visites Virtuelles 3D Professionnelles",
+  title: "vrdev | Visites Virtuelles 3D Professionnelles",
   description:
     "Visites virtuelles 3D professionnelles utilisant la technologie Matterport Pro2 4K pour l'immobilier, les espaces commerciaux et les événements.",
   generator: "v0.dev",
@@ -53,8 +53,8 @@ export default function RootLayout({
           `}
         </style>
       </head>
-      <body className={`${inter.variable} ${montserrat.variable} light`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className={`${inter.variable} ${montserrat.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="dot-pattern min-h-screen">{children}</div>
         </ThemeProvider>
       </body>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Portfolio | VirtualVista",
+  title: "Portfolio | vrdev",
   description:
     "Explore our portfolio of 3D virtual tours for residential, commercial, and event spaces.",
 };

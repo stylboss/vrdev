@@ -13,7 +13,7 @@ const testimonials = [
     company: "Montreal Properties",
     image: "/placeholder.svg?height=80&width=80",
     content:
-      "The virtual tours created by VirtualVista have completely transformed how I showcase properties. My listings with virtual tours receive 45% more inquiries and sell 30% faster. The quality and attention to detail are unmatched.",
+      "The virtual tours created by vrdev have completely transformed how I showcase properties. My listings with virtual tours receive 45% more inquiries and sell 30% faster. The quality and attention to detail are unmatched.",
     rating: 5,
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     company: "Boutique Hotel Group",
     image: "/placeholder.svg?height=80&width=80",
     content:
-      "We've seen a 60% increase in online bookings since implementing VirtualVista's 3D tours on our website. Guests love being able to explore our rooms and facilities before booking, and it's significantly reduced the number of cancellations.",
+      "We've seen a 60% increase in online bookings since implementing vrdev's 3D tours on our website. Guests love being able to explore our rooms and facilities before booking, and it's significantly reduced the number of cancellations.",
     rating: 5,
   },
   {
@@ -43,7 +43,7 @@ const testimonials = [
     company: "Modern Design Studio",
     image: "/placeholder.svg?height=80&width=80",
     content:
-      "As an architect, I appreciate the precision and quality of VirtualVista's 3D models. They've become an essential tool for client presentations, allowing us to walk clients through designs in an immersive way that 2D renderings simply can't match.",
+      "As an architect, I appreciate the precision and quality of vrdev's 3D models. They've become an essential tool for client presentations, allowing us to walk clients through designs in an immersive way that 2D renderings simply can't match.",
     rating: 5,
   },
 ]

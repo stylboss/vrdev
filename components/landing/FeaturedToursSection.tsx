@@ -4,7 +4,7 @@ const commercialTours = [
   {
     title: "Bureau Moderne",
     description: "Visite virtuelle d'un espace de bureau moderne à Montréal",
-    imageUrl: "https://my.matterport.com/show?play=1&lang=en-US&m=o2PhajV5u33",
+    imageUrl: "https://my.matterport.com/show?play=1&lang=en-US&m=YGW1E9vhYf9",
     tourUrl: "/tours/modern-office",
     category: "commercial",
   },

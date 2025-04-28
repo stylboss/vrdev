@@ -36,7 +36,7 @@ const TourCard = ({
           {category.charAt(0).toUpperCase() + category.slice(1)}
         </div>
       </div>
-      <CardContent className="p-4">
+      <CardContent className="p-4 hidden sm:block">
         <h3 className="font-bold text-lg mb-1 font-montserrat">{title}</h3>
         <p className="text-muted-foreground text-sm mb-3 font-inter">
           {description}

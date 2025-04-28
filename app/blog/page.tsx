@@ -4,7 +4,7 @@ import Categories from "./components/Categories";
 import Newsletter from "./components/Newsletter";
 
 export const metadata = {
-  title: "Blog | VirtualVista",
+  title: "Blog | vrdev",
   description:
     "Latest news, tips, and insights about 3D virtual tours and Matterport technology.",
 };

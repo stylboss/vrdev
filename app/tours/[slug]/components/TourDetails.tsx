@@ -86,7 +86,7 @@ export default function TourDetails({ title }: { title: string }) {
                     Client Testimonial
                   </h2>
                   <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground font-inter">
-                    "The virtual tour created by VirtualVista exceeded our
+                    "The virtual tour created by vrdev exceeded our
                     expectations. The attention to detail and quality of the
                     final product helped us showcase our space in the best
                     possible light."

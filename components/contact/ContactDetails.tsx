@@ -38,7 +38,7 @@ const ContactDetails = () => (
         </div>
         <div>
           <h3 className="font-bold mb-1 font-montserrat">Email</h3>
-          <p className="text-muted-foreground font-inter">info@virtualvista.com</p>
+          <p className="text-muted-foreground font-inter">info@vrdev.com</p>
         </div>
       </CardContent>
     </Card>
