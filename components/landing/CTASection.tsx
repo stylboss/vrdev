@@ -2,7 +2,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ChevronDownIcon from "@/components/ChevronDownIcon";
 import { useContactForm } from "@/components/hooks/useContactForm";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog";
 import ContactForm from "@/components/contact/ContactForm";
 
 const CTASection = () => (
@@ -18,7 +25,8 @@ const CTASection = () => (
             Prêt à Transformer Votre Espace?
           </h2>
           <p className="text-muted-foreground text-xs sm:text-sm font-inter">
-            Réservez une consultation avec notre équipe pour discuter de votre projet et obtenir un devis personnalisé.
+            Réservez une consultation avec notre équipe pour discuter de votre
+            projet et obtenir un devis personnalisé.
           </p>
           <div className="flex flex-col gap-2">
             <Dialog>
@@ -32,7 +40,9 @@ const CTASection = () => (
               </DialogTrigger>
               <DialogContent className="max-w-xs w-full p-2 rounded-xl">
                 <DialogHeader>
-                  <DialogTitle className="text-base">Réserver une Consultation</DialogTitle>
+                  <DialogTitle className="text-base">
+                    Réserver une Consultation
+                  </DialogTitle>
                 </DialogHeader>
                 <ContactForm />
               </DialogContent>
@@ -47,10 +57,25 @@ const CTASection = () => (
                   Voir les Tarifs
                 </Button>
               </DialogTrigger>
-              <DialogContent className="w-full max-w-xs sm:max-w-2xl md:max-w-[65vw] lg:max-w-[65vw] p-2 rounded-xl">
+              <DialogContent
+                className="w-full max-w-xs sm:max-w-2xl md:max-w-[65vw] lg:max-w-[65vw] p-2 rounded-xl"
+                aria-describedby="tarifs-description"
+              >
                 <DialogHeader>
                   <DialogTitle className="text-base">Nos Tarifs</DialogTitle>
                 </DialogHeader>
+                <DialogClose asChild>
+                  <button
+                    type="button"
+                    aria-label="close"
+                    className="absolute top-2 right-2 text-xl bg-transparent border-none cursor-pointer"
+                    style={{ lineHeight: 1 }}
+                  />
+                </DialogClose>
+                <p id="tarifs-description" className="sr-only">
+                  Consultez la liste complète des tarifs pour nos services,
+                  accessible dans la fenêtre ci-dessous.
+                </p>
                 <iframe
                   src="/rates"
                   title="Tarifs"
@@ -78,7 +103,12 @@ export function CTAForm() {
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div className="grid gap-4 sm:grid-cols-1">
         <div className="space-y-2">
-          <label htmlFor="name" className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Nom</label>
+          <label
+            htmlFor="name"
+            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Nom
+          </label>
           <input
             id="name"
             className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs ring-offset-background file:border-0 file:bg-transparent file:text-xs file:font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
@@ -89,7 +119,12 @@ export function CTAForm() {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="email" className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Email</label>
+          <label
+            htmlFor="email"
+            className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Email
+          </label>
           <input
             id="email"
             type="email"
@@ -102,7 +137,12 @@ export function CTAForm() {
         </div>
       </div>
       <div className="space-y-2 relative">
-        <label htmlFor="projectType" className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Type de Projet</label>
+        <label
+          htmlFor="projectType"
+          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Type de Projet
+        </label>
         <div className="relative">
           <select
             id="projectType"
@@ -120,7 +160,12 @@ export function CTAForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor="message" className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Message</label>
+        <label
+          htmlFor="message"
+          className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Message
+        </label>
         <textarea
           id="message"
           className="flex min-h-[100px] w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs placeholder:text-muted-foreground focus:outline-none focus:border-primary disabled:cursor-not-allowed disabled:opacity-50"
@@ -130,9 +175,17 @@ export function CTAForm() {
           required
         />
       </div>
-      <Button type="submit" className="w-full shine-effect text-xs">Envoyer la Demande</Button>
-      {status === "success" && <p className="text-green-600 text-xs">Votre demande a été envoyée !</p>}
-      {status === "error" && <p className="text-red-600 text-xs">Erreur lors de l'envoi. Réessayez.</p>}
+      <Button type="submit" className="w-full shine-effect text-xs">
+        Envoyer la Demande
+      </Button>
+      {status === "success" && (
+        <p className="text-green-600 text-xs">Votre demande a été envoyée !</p>
+      )}
+      {status === "error" && (
+        <p className="text-red-600 text-xs">
+          Erreur lors de l'envoi. Réessayez.
+        </p>
+      )}
     </form>
   );
 }
