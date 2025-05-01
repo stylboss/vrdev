@@ -7,26 +7,26 @@ export default function ContactInfoCards() {
       title: "Our Office",
       value: (
         <p className="text-muted-foreground font-inter text-xs">
-          123 Virtual Street<br />Montreal, QC H2X 1Y6<br />Canada
+          2O cite irlandais<br />Arcueil, 94110<br />France
         </p>
       ),
     },
     {
       icon: <Phone className="h-4 w-4 text-primary" />,
       title: "Phone",
-      value: <p className="text-muted-foreground font-inter text-xs">+1 (514) 555-0123</p>,
+      value: <p className="text-muted-foreground font-inter text-xs">+33 6 52 11 26 54</p>,
     },
     {
       icon: <Mail className="h-4 w-4 text-primary" />,
       title: "Email",
-      value: <p className="text-muted-foreground font-inter text-xs">info@vrdev.com</p>,
+      value: <p className="text-muted-foreground font-inter text-xs">contact@vrdev.com</p>,
     },
     {
       icon: <Clock className="h-4 w-4 text-primary" />,
       title: "Business Hours",
       value: (
         <p className="text-muted-foreground font-inter text-xs">
-          Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM - 4:00 PM<br />Sunday: Closed
+          Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: 10:00 AM - 4:00 PM<br />Sunday: Closed
         </p>
       ),
     },

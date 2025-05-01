@@ -13,17 +13,16 @@ const Header = () => (
       <div className="flex items-center gap-2">
         <div className="relative">
           <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-green-300 via-green-200 to-green-100 opacity-70 blur dark:from-primary dark:to-primary/50"></div>
-          <div className="relative rounded-full bg-background p-1">
+          <div className="relative rounded-full p-1">
             <Image
-              src="/placeholder.svg?height=32&width=32"
+              src="/vrdev-logo.svg"
               alt="vrdev Logo"
-              width={32}
-              height={32}
+              width={175}
+              height={175}
               className="rounded-full"
             />
           </div>
         </div>
-        <span className="text-xl font-bold font-montserrat">vrdev</span>
       </div>
       <nav className="hidden md:flex items-center gap-6">
         <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">

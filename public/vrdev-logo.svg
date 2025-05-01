@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond avec légère ombre portée -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="100%" stop-color="#1a1a1a" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  
+  <!-- Rectangle arrondi pour le fond -->
+  <rect x="20" y="30" width="260" height="60" rx="10" ry="10" fill="url(#bgGradient)" filter="url(#shadow)" />
+  
+  <!-- Symbole VR avec effet 3D -->
+  <g transform="translate(40, 42)" fill="#4e9af5">
+    <path d="M0,0 L15,0 L25,35 L17,35 L11,12 L5,35 L-3,35 Z" />
+    <path d="M30,0 L45,0 C55,0 60,10 60,17.5 C60,25 55,35 45,35 L30,35 Z" fill="#4e9af5" />
+    <path d="M38,8 L38,27 L43,27 C47,27 48,22 48,17.5 C48,13 47,8 43,8 Z" fill="url(#bgGradient)" />
+  </g>
+  
+  <!-- Code brackets avec animation -->
+  <g fill="#ffffff">
+    <text x="115" y="68" font-family="Courier New, monospace" font-weight="bold" font-size="28">VRDEV</text>
+    <text x="205" y="68" font-family="Courier New, monospace" font-weight="bold" font-size="28">/</text>
+    <text x="95" y="68" font-family="Courier New, monospace" font-weight="bold" font-size="28">&lt;</text>
+    <text x="220" y="68" font-family="Courier New, monospace" font-weight="bold" font-size="28">&gt;</text>
+  </g>
+  
+  <!-- Point en accent -->
+  <circle cx="242" cy="55" r="4" fill="#4e9af5" />
+</svg>

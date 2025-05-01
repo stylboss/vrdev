@@ -88,20 +88,20 @@ const Footer = () => (
           <li className="flex items-start gap-2">
             <MapPin className="h-5 w-5 text-muted-foreground mt-0.5" />
             <span className="text-muted-foreground font-inter">
-              123 Rue Virtuelle
+              20 cite irlandais
               <br />
-              Montréal, QC H2X 1Y6
+              Arcueil, 94110
               <br />
-              Canada
+              France
             </span>
           </li>
           <li className="flex items-center gap-2">
             <Phone className="h-5 w-5 text-muted-foreground" />
-            <span className="text-muted-foreground font-inter">+1 (514) 555-0123</span>
+            <span className="text-muted-foreground font-inter">+33 6 52 11 26 54</span>
           </li>
           <li className="flex items-center gap-2">
             <Mail className="h-5 w-5 text-muted-foreground" />
-            <span className="text-muted-foreground font-inter">info@vrdev.com</span>
+            <span className="text-muted-foreground font-inter">contact@vrdev.com</span>
           </li>
         </ul>
       </div>
